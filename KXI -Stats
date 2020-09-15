@@ -1,0 +1,45 @@
+#Top Run getters for KXIP
+
+SELECT player, Runs
+FROM batting
+WHERE runs>1000
+Order by Runs DESC;
+
+#Top 5 Batting Averages for KXIP 
+
+SELECT player,BatAve
+FROM batting
+group by player
+having BatAve>30 ORDER BY BatAve desc
+LIMIT 5;
+
+
+#Most No. of matches
+SELECT player,Mat
+FROM batting
+Group by player,Mat
+order by Mat desc;
+
+#Most no. of overs bowled
+SELECT player,(Overs)
+FROM bowling
+group by player
+having overs>100 
+order by overs desc;
+
+#Players with best bowling Average
+SELECT player,Ave,Mat
+FROM bowling
+where Ave between 16 and 27
+group by player,Overs
+having Overs>50
+ORDER BY Ave ASC
+
+
+#best economy rate(min 50 overs)
+SELECT player,Econ
+FROM bowling
+WHERE Overs>50
+group by player
+order by Econ asc;
+
